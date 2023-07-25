@@ -67,6 +67,10 @@
     --ring: 217.2 32.6% 17.5%;
   }
 }
+
+.imgur-gray{
+  background: #3c424b;
+}
  
 @layer base {
   * {
