@@ -2,33 +2,73 @@ import { authOptions } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 import { Icons } from './Icons'
-import { buttonVariants } from './ui/Button'
+import { Button, buttonVariants } from './ui/Button'
 import { UserAccountNav } from './UserAccountNav'
 import SearchBar from './SearchBar'
+import { cn } from '@/lib/utils'
 
 const Navbar = async () => {
+  const motd = "You miss 100% of the shots you don't take."
   const session = await getServerSession(authOptions)
+  const tags = ['Chocolate', 'Cake', 'Memes', 'Funny', 'Reddit', 'Counter Strike', 'Gaming', 'League of Legends', 'Drip', 'Valorant', 'Music', 'Skins', 'Tech']
+
   return (
-    <div className='fixed top-0 inset-x-0 h-fit bg-zinc-100 border-b border-zinc-300 z-[10] py-2'>
-      <div className='container max-w-7xl h-full mx-auto flex items-center justify-between gap-2'>
+    <div className='HomeCover'>
+      <div className='Navbar'>
         {/* logo */}
-        <Link href='/' className='flex gap-2 items-center'>
-          <Icons.logo className='h-8 w-8 sm:h-6 sm:w-6' color="#FF5700" />
-          <p className='hidden text-zinc-700 text-sm font-medium md:block'>Imgur</p>
-        </Link>
+        <div className='Navbar-Left'>
+          <Link href='/' className='flex gap-2 items-center'>
+            <h2 className='Logo'>TUES</h2>
+          </Link>
+          <Button className='Upload'><img src="https://s.imgur.com/desktop-assets/desktop-assets/icon-new-post.da483e9d9559c3b4e912.svg"/><span className='Upload-label'>New post</span></Button>
+        </div>
 
         {/* search bar */}
-        <SearchBar />
+        <div className='Navbar-Center'>
+          <SearchBar />
+        </div>
+
 
         {/* actions */}
-        {session?.user ? (
-          <UserAccountNav user={session.user} />
-        ) : (
-          <Link href='/sign-in' className={buttonVariants()}>
-            Sign In
-          </Link>
-        )}
+        <div className='Navbar-Right'>
+          {session?.user ? (<UserAccountNav user={session.user} />) : (
+            <>
+            <Link href='/sign-in' className={cn(buttonVariants({variant: 'outline'}), 'Signin-Button')} >
+              Sign In
+            </Link>
+            <Link href='/sign-up' className={cn(buttonVariants({variant: 'outline'}), 'Signup-Button')} >
+              Sign Up
+            </Link>
+            </>
+          )}
+        </div>
+
       </div>
+
+      <div className='Motd'>{motd}</div>
+
+      <div className='Tags'>
+          <div className='Tags-header'><span>EXPLORE TAGS</span><a>MORE TAGS +</a></div>
+          <div className='Tags-container'> 
+            {tags.map((tag, index) => (
+              <a className='Tag' href='/'>
+                <div key={index} className='Tag-title'>
+                  <div className='Tag-name'>{tag}</div>
+                  <div className='Tag-posts'>4,991 Posts</div>
+                </div>
+              </a>
+            ))}
+          </div>
+      </div>
+
+      <div className='Cover-Gallery'>
+        <div className='Cover-Sort'>
+          <span className='Change-Sort-Pop'>Most Viral</span>
+          <span className='Change-Sort-Pop'>Newest</span>
+        </div>
+      </div>
+
+
     </div>
   )
 }

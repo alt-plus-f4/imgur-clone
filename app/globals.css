@@ -1,81 +1,133 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
- 
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
- 
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
- 
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
- 
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --ring: 215 20.2% 65.1%;
- 
+
     --radius: 0.5rem;
+
+    --gay-red: #FF0018;
+    --gay-orange: #FFA52C;
+    --gay-yellow: #FFFF41;
+    --gay-green: #008018;
+    --gay-blue: #0000F9;
+    --gay-indigo: #4B0082;
+    --gay-violet: #EE82EE;
+
+    --red: 255;
+    --green: 255;
+    --blue: 255;
+
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
- 
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
- 
+
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
- 
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
- 
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
- 
+
     --ring: 217.2 32.6% 17.5%;
   }
 }
 
-.imgur-gray{
-  background: #3c424b;
-}
- 
+*{font-weight: 800;}
+
+.imgur-gray     {background: #3c424b;}
+.Search         {background: rgba(255, 255, 255, 0.25); border-radius: 6px;}
+.HomeCover      {min-height: 0px;top: 0px;background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.f51d3f34235dea1b7cdd.png) no-repeat;background-position: bottom;background-size: cover;display: flex;flex-direction: column;align-items: center;justify-content: space-between;width: 100%;position: absolute;top: 0;left: 0;right: 0;padding-bottom: 76px;opacity: 1;transition: opacity 500ms,box-shadow 400ms;}
+.Navbar         {top: 0; position: sticky; padding: 15px; display: flex; width: 100%; z-index: 1000;}
+.Navbar-Left    {min-width: 360px; position: relative; display: inline-flex; }
+.Logo           {font-weight: bold; font-size: 20px; margin-left: 10px; text-shadow: 2px 2px black; transition: 0.5s linear;}
+.Logo:hover     {background: linear-gradient(to right, var(--gay-red), var(--gay-yellow), var(--gay-green), var(--gay-blue));background-clip: text;-webkit-background-clip: text;color: transparent;transition: 0.5s;text-shadow: none;}
+.Navbar-Center  {max-width: 550px; margin: auto; flex: 1; align-items: center; justify-content: space-around;}
+.Navbar-Right   {justify-content: flex-end; min-width: 280px; position: relative; display: inline-flex;}
+.Upload         {margin: auto 20px; background-color: #1bb76e; color: white;}
+.Upload-label   {margin-left: 10px;}
+.Signin-Button, .Signup-Button  {padding-left: 30px; padding-right: 30px; background: transparent; font-weight: 800;}
+.Signin-Button  {border: 1px solid white;}
+.Signup-Button  {margin-left: 20px; background-color: #1bb76e;}
+.Motd           {font-size: 24px; letter-spacing: .6px; color: #aed8ea; text-align: center; margin-top: 12px; min-height: 34px; position: relative;}
+.Tags           {margin: 0 auto; display: flex; flex-direction: column; align-items: center;}
+.Tags-header    {width: 90vw; padding: 0px 6px;height: 31px;display: flex;justify-content: space-between;align-items: center;opacity: .7;font-size: 16px;font-weight: 700;line-height: 1;letter-spacing: 1.3px;text-align: left;color: #fff;text-transform: uppercase;}
+.Tags-container {width: 90vw; display: flex;justify-content: center;flex-wrap: wrap; overflow-y: hidden;}
+.Tag            {background-image: url("https://i.imgur.com/vpIPSr4_d.jpg?maxwidth=800&shape=thumb&fidelity=high"); height: 130px; width: 110px; margin: 6px 6px 0 6px;position: relative;display: flex;flex-direction: column;justify-content: flex-end;border-radius: 3px;background-size: auto 115px;background-repeat: repeat-x;background-position: top right;transition: transform 300ms;-webkit-transition: transform 300ms;}
+.Tag div        {border-radius: 0 0 3px 3px;}
+.Tag-title      {background-color: rgb(155, 107, 85);font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;text-align: center;padding: 12px;width: 100%;text-align: center;color: #fff;}
+.Tag-name       {font-size: 14px;line-height: 1.15;letter-spacing: .4px;color: #fff;text-transform: capitalize;word-break: break-word;}
+.Tag-posts      {margin-top: 4px;font-size: 11px;line-height: 1.46;letter-spacing: .4px;color: rgba(255,255,255,.5);}
+.Cover-Gallery  {width: 60vw;bottom: -29px;display: flex;justify-content: space-between;position: relative;height: 36px;min-width: 405px;}
+.Cover-Sort     {user-select: none;display: flex;align-items: center;justify-content: space-between;width: 100%;}
+.Change-Sort-Pop {text-transform: uppercase;font-weight: 600;letter-spacing: 1.5px;text-align: right;color: #babec4;cursor: pointer;font-size: 18px;font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;}
+
+
+
+
+@media only screen and (max-width: 1200px){
+  .Navbar-Left    {min-width: 225px;}
+} 
+@media only screen and (max-width: 678px){    
+  .Upload, .Navbar-Right {display: none}
+  .Navbar-Left    {min-width: 75px;}
+/*! DISPLAY BURGER */
+} 
+
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
