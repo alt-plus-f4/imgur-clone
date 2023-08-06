@@ -82,11 +82,12 @@
 }
 
 *{font-weight: 800;}
-
 .imgur-gray     {background: #3c424b;}
-.Search         {background: rgba(255, 255, 255, 0.25); border-radius: 6px;}
-.HomeCover      {min-height: 0px;top: 0px;background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.f51d3f34235dea1b7cdd.png) no-repeat;background-position: bottom;background-size: cover;display: flex;flex-direction: column;align-items: center;justify-content: space-between;width: 100%;position: absolute;top: 0;left: 0;right: 0;padding-bottom: 76px;opacity: 1;transition: opacity 500ms,box-shadow 400ms;}
-.Navbar         {top: 0; position: sticky; padding: 15px; display: flex; width: 100%; z-index: 1000;}
+.Search         {background: rgba(255, 255, 255, 0.25); border-radius: 6px; transition: 0.2s;}
+.Search:hover   {background: rgba(255, 255, 255, 0.403);transition: 0.2s;}
+.HomeCover      {min-height: 0px;top: 0px; padding-top: 70px;background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.f51d3f34235dea1b7cdd.png) no-repeat;background-position: bottom;background-size: cover;display: flex;flex-direction: column;align-items: center;justify-content: space-between;width: 100%;position: absolute;top: 0;left: 0;right: 0;padding-bottom: 76px;opacity: 1;transition: opacity 500ms,box-shadow 400ms;}
+.Navbar         {top: 0;padding: 15px; display: flex; width: 100%; z-index: 1000; transition: 0.5s; background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.f51d3f34235dea1b7cdd.png) no-repeat; background-position: bottom; position: fixed;}
+.Navbar:hover   {background-position:unset; transition: 0.5s;}
 .Navbar-Left    {min-width: 360px; position: relative; display: inline-flex; }
 .Logo           {font-weight: bold; font-size: 20px; margin-left: 10px; text-shadow: 2px 2px black; transition: 0.5s linear;}
 .Logo:hover     {background: linear-gradient(to right, var(--gay-red), var(--gay-yellow), var(--gay-green), var(--gay-blue));background-clip: text;-webkit-background-clip: text;color: transparent;transition: 0.5s;text-shadow: none;}
@@ -99,18 +100,25 @@
 .Signup-Button  {margin-left: 20px; background-color: #1bb76e;}
 .Motd           {font-size: 24px; letter-spacing: .6px; color: #aed8ea; text-align: center; margin-top: 12px; min-height: 34px; position: relative;}
 .Tags           {margin: 0 auto; display: flex; flex-direction: column; align-items: center;}
-.Tags-header    {width: 90vw; padding: 0px 6px;height: 31px;display: flex;justify-content: space-between;align-items: center;opacity: .7;font-size: 16px;font-weight: 700;line-height: 1;letter-spacing: 1.3px;text-align: left;color: #fff;text-transform: uppercase;}
-.Tags-container {width: 90vw; display: flex;justify-content: center;flex-wrap: wrap; overflow-y: hidden;}
-.Tag            {background-image: url("https://i.imgur.com/vpIPSr4_d.jpg?maxwidth=800&shape=thumb&fidelity=high"); height: 130px; width: 110px; margin: 6px 6px 0 6px;position: relative;display: flex;flex-direction: column;justify-content: flex-end;border-radius: 3px;background-size: auto 115px;background-repeat: repeat-x;background-position: top right;transition: transform 300ms;-webkit-transition: transform 300ms;}
+.Tags-header    {width: 90vw;  padding: 0px 6px;  height: 31px;  display: flex;  justify-content: space-between;  align-items: center;  opacity: 0.7;  font-size: 16px;  font-weight: 700;  line-height: 1;  letter-spacing: 1.3px;  text-align: left;  color: #fff;  text-transform: uppercase;}
+.Tags-container {width: 90vw;  display: flex;  flex-wrap: nowrap;  justify-content: center;  gap: 6px;  overflow: hidden;}
+.Tag            {background-image: url("https://i.imgur.com/vpIPSr4_d.jpg?maxwidth=800&shape=thumb&fidelity=high");height: 130px;width: 110px;margin: 6px;position: relative;display: flex;flex-direction: column;justify-content: flex-end;border-radius: 3px;background-size: auto 115px;background-repeat: repeat-x;background-position: top right;transition: transform 300ms;-webkit-transition: transform 300ms;}
 .Tag div        {border-radius: 0 0 3px 3px;}
-.Tag-title      {background-color: rgb(155, 107, 85);font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;text-align: center;padding: 12px;width: 100%;text-align: center;color: #fff;}
-.Tag-name       {font-size: 14px;line-height: 1.15;letter-spacing: .4px;color: #fff;text-transform: capitalize;word-break: break-word;}
-.Tag-posts      {margin-top: 4px;font-size: 11px;line-height: 1.46;letter-spacing: .4px;color: rgba(255,255,255,.5);}
+.Tag-title      {background-color: rgb(155, 107, 85);  font-family: "Proxima Nova Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;  text-align: center;  padding: 12px;  width: 100%;  text-align: center;  color: #fff;}
+.Tag-name       {font-size: 14px;  line-height: 1.15;  letter-spacing: 0.4px;  color: #fff;  text-transform: capitalize;  word-break: break-word;}
+.Tag-posts      {margin-top: 4px;font-size: 11px;line-height: 1.46;letter-spacing: 0.4px;color: rgba(255, 255, 255, 0.5);}
 .Cover-Gallery  {width: 60vw;bottom: -29px;display: flex;justify-content: space-between;position: relative;height: 36px;min-width: 405px;}
 .Cover-Sort     {user-select: none;display: flex;align-items: center;justify-content: space-between;width: 100%;}
-.Change-Sort-Pop {text-transform: uppercase;font-weight: 600;letter-spacing: 1.5px;text-align: right;color: #babec4;cursor: pointer;font-size: 18px;font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;}
-
-
+.Change-Sort-Pop{text-transform: uppercase;font-weight: 600;letter-spacing: 1.5px;text-align: right;color: #babec4;cursor: pointer;font-size: 18px;font-family: "Proxima Nova Bold","Helvetica Neue",Helvetica,Arial,sans-serif;}
+.Images-Cover   {display: flex;flex-direction: column;align-items: center;justify-content: space-between;width: 100%;position: absolute;top: 0;left: 0;right: 0;opacity: 1;transition: opacity 500ms,box-shadow 400ms;}
+.images-section {margin-top: 350px; width: 60vw;display: flex;justify-content: space-around;flex-wrap: wrap;position: relative;align-items: center;}
+.imageContainer {width: 300px;position: relative;cursor: pointer;margin-top: 20px;height: 100%;overflow: hidden;border-radius: 3px;box-shadow: 0.1px 0.1px 6px black;transition: 0.5s;}.imageContainer:hover{transition: 0.5s;filter: brightness(130%);}.image{min-width: 300px;background-color: #1bb76e;}.color-loading {/* filter: grayscale(100%); */background-color: rgb(  calc(var(--red) * random()),  calc(var(--green) * random()),  calc(var(--blue) * random())  );transition: 1s ease;}.color-loading.loaded {filter: none;}.postData{width: 300px;height: 24px;padding-top: 3px;background: #474a51;border-bottom: solid 4px transparent;transition: background-color 250ms;color: white;}.postText{color: white;margin-left: 10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 200px;}.postInfo{display: flex;padding-left: 10px;padding-right: 10px;padding-bottom: 8px;padding-top: 8px;justify-content: space-between;background: #474a51;}.upvoteContainer{display: flex;background: transparent;}.upvote{height: 14px;width: 14px;background-color: transparent;filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(216deg) brightness(102%) contrast(102%);transition: 0.1s;}.upvote:hover{filter: none;}.upvoteCount{color: grey;margin-left: 3px;font-size: 12px;height: 12px;width: 12px;background-color: transparent;}.downvoteContainer{display: flex;background: transparent;}.downvote{height: 16px;width: 16px;background-color: transparent;filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(216deg) brightness(102%) contrast(102%);transition: 0.1s;}.downvote:hover{filter: none;}
+.downvoteCount  {color: grey;	margin-left: 3px;	font-size: 12px;	height: 12px;	width: 12px;	background-color: transparent;}
+.commentContainer{display: flex;	background: transparent;}
+.comment        {height: 14px;	width: 14px;	background-color: transparent;	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(216deg) brightness(102%) contrast(102%);	transition: 0.1s;}
+.comment:hover  {filter: none;}
+.commentCount   {color: grey;	margin-left: 3px;	font-size: 12px;	height: 12px;	width: 12px;	background-color: transparent;}
+.tagButton      {background: inherit;	border: 1px solid black;	margin: auto;	margin-top: 5px;}
 
 
 @media only screen and (max-width: 1200px){

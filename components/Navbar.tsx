@@ -1,3 +1,4 @@
+
 import { authOptions } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
@@ -6,6 +7,7 @@ import { Button, buttonVariants } from './ui/Button'
 import { UserAccountNav } from './UserAccountNav'
 import SearchBar from './SearchBar'
 import { cn } from '@/lib/utils'
+import Tags from './Tags'
 
 const Navbar = async () => {
   const motd = "You miss 100% of the shots you don't take."
@@ -47,19 +49,7 @@ const Navbar = async () => {
 
       <div className='Motd'>{motd}</div>
 
-      <div className='Tags'>
-          <div className='Tags-header'><span>EXPLORE TAGS</span><a>MORE TAGS +</a></div>
-          <div className='Tags-container'> 
-            {tags.map((tag, index) => (
-              <a className='Tag' href='/'>
-                <div key={index} className='Tag-title'>
-                  <div className='Tag-name'>{tag}</div>
-                  <div className='Tag-posts'>4,991 Posts</div>
-                </div>
-              </a>
-            ))}
-          </div>
-      </div>
+      <Tags tags={tags} />
 
       <div className='Cover-Gallery'>
         <div className='Cover-Sort'>
@@ -67,8 +57,6 @@ const Navbar = async () => {
           <span className='Change-Sort-Pop'>Newest</span>
         </div>
       </div>
-
-
     </div>
   )
 }
